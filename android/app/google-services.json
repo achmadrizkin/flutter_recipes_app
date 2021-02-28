@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "394390407608",
+    "project_id": "flutter-recipeapp",
+    "storage_bucket": "flutter-recipeapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394390407608:android:a5a516a139269b321b674d",
+        "android_client_info": {
+          "package_name": "com.example.flutter_recipe_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394390407608-6l1rt3bo51lv0crj1c3t0o737bqetnht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6EjIosq8XBvI9Hw7yqSHjHUM7E8orKKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394390407608-6l1rt3bo51lv0crj1c3t0o737bqetnht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
