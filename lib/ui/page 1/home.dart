@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_recipe_app/ui/page%201/cardBundle/bestof2020.dart';
+import 'package:flutter_recipe_app/ui/page%201/cardBundle/cookSomething.dart';
+import 'package:flutter_recipe_app/ui/page%201/cardBundle/foodCourt.dart';
 import 'package:flutter_recipe_app/ui/searchDelegate/searchDelegate.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,146 +13,144 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
-      appBar: _appBar(),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              //TODO: add etc
-              // recipebundlecard(),
-              // recipebundlecard(),
-              // recipebundlecard(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: RichText(
+          text: TextSpan(
+            children: <TextSpan>[
+              TextSpan(
+                  text: 'Recipe',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontFamily: 'PoppinsBold')),
+              TextSpan(
+                  text: ' App',
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.green,
+                      fontFamily: 'PoppinsBold')),
             ],
           ),
         ),
-      ),
-    );
-  }
-
-  //AppBar
-  AppBar _appBar() {
-    return AppBar(
-      elevation: 0.0,
-      backgroundColor: Colors.white,
-      centerTitle: true,
-      title: RichText(
-        text: TextSpan(
-          children: <TextSpan>[
-            TextSpan(
-                text: 'Recipe',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black,
-                    fontFamily: 'PoppinsBold')),
-            TextSpan(
-                text: ' App',
-                style: TextStyle(
-                    fontSize: 18,
-                    color: Color(0xFF016DF7),
-                    fontFamily: 'PoppinsBold')),
-          ],
-        ),
-      ),
-      actions: [
-        IconButton(
-            onPressed: () {
-              // showSearch(context: context, delegate: ProductSearch());
-            },
-            icon: Icon(Icons.search, color: Colors.black)),
-      ],
-    );
-  }
-
-  // recipe bundle card
-  Container recipebundlecard(
-      {String recipeBundleTitle,
-      Color containerColor,
-      String recipeBundledescription,
-      String recipeBundlerecipes,
-      String recipeBundlechefs,
-      String imageLocation}) {
-    return Container(
-      decoration: BoxDecoration(
-        color: containerColor,
-        borderRadius: BorderRadius.circular(20), //18
-      ),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(
-                  (MediaQuery.of(context).size.width * 0.024) * 2), //20
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Spacer(),
-                  Text(
-                    recipeBundleTitle,
-                    style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.width * 2.2, //22
-                        color: Colors.white),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(
-                      height: (MediaQuery.of(context).size.width * 0.024) *
-                          0.5), // 5
-                  Text(
-                    recipeBundledescription,
-                    style: TextStyle(color: Colors.white54),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Spacer(),
-                  buildInfoRow(
-                    (MediaQuery.of(context).size.width * 0.024),
-                    // iconSrc: "assets/icons/pot.svg",
-                    text: recipeBundlerecipes + " Recipes",
-                  ),
-                  SizedBox(
-                      height: (MediaQuery.of(context).size.width * 0.024) *
-                          0.5), //5
-                  buildInfoRow(
-                    (MediaQuery.of(context).size.width * 0.024),
-                    // iconSrc: "assets/icons/chef.svg",
-                    text: recipeBundlechefs + " Chefs",
-                  ),
-                  Spacer(),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-              width: (MediaQuery.of(context).size.width * 0.024) * 0.5), //5
-          AspectRatio(
-            aspectRatio: 0.71,
-            child: Image.asset(
-              imageLocation,
-              fit: BoxFit.cover,
-              alignment: Alignment.centerLeft,
-            ),
-          )
+        actions: [
+          IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: ProductSearch());
+              },
+              icon: Icon(Icons.search, color: Colors.black)),
         ],
       ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+              padding: EdgeInsets.all(20.0), //,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => CookSomething()));
+                    },
+                    child: recipeBundle(
+                        recipeColor: Color(0xFFD82D40),
+                        recipeTitle: "Cook Something\nNew Everyday",
+                        repiceDesc: "New and tasty\nrecipes every minute",
+                        imageSrc: 'images/cook_new@2x.png'),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => BestOf2020()));
+                    },
+                    child: recipeBundle(
+                        recipeColor: Color(0xFF90AF17),
+                        recipeTitle: 'Best of 2021',
+                        repiceDesc: 'Cook recipes\nfor special occasions',
+                        imageSrc: 'images/best_2020@2x.png'),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => FoodCourt()));
+                    },
+                    child: recipeBundle(
+                        recipeColor: Color(0xFF2DBBD8),
+                        recipeTitle: 'Food Court',
+                        repiceDesc:
+                            'Whats your favorite\nfood dish make it now',
+                        imageSrc: "images/food_court@2x.png"),
+                  ),
+                ],
+              )),
+        ),
+      ),
     );
   }
+}
 
-  // recipe info
-  Row buildInfoRow(double defaultSize, {String text}) {
-    return Row(
+Container recipeBundle(
+    {@required Color recipeColor,
+    @required String recipeTitle,
+    @required String repiceDesc,
+    @required String imageSrc}) {
+  double defaultSize = 10;
+
+  return Container(
+    height: 240,
+    width: double.infinity,
+    decoration: BoxDecoration(
+      color: recipeColor,
+      borderRadius: BorderRadius.circular(defaultSize * 1.8), //18
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
-        // iconSrc == null ? SvgPicture.asset(iconSrc) : SizedBox(height: 0),
-        SizedBox(width: defaultSize), // 10
-        Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
+        Padding(
+          padding: EdgeInsets.all(defaultSize * 2), //20
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(
+                recipeTitle,
+                style: TextStyle(
+                    fontSize: defaultSize * 2.2, //22
+                    fontFamily: 'PoppinsBold',
+                    color: Colors.white),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+              SizedBox(height: defaultSize * 0.5), // 5
+              Text(
+                repiceDesc,
+                style:
+                    TextStyle(color: Colors.white54, fontFamily: 'PoppinsReg'),
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
           ),
-        )
+        ),
+        SizedBox(width: defaultSize * 0.5), //5
+        Expanded(
+          child: Image.asset(
+            imageSrc,
+            fit: BoxFit.cover,
+            alignment: Alignment.centerLeft,
+          ),
+        ),
       ],
-    );
-  }
+    ),
+  );
 }
