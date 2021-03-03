@@ -22,19 +22,19 @@ class _BottomNavigationState extends State<BottomNavigation> {
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.home),
         title: ("Home"),
-        activeColor: CupertinoColors.activeBlue,
+        activeColor: CupertinoColors.activeGreen,
         inactiveColor: CupertinoColors.black,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.add),
         title: ("Add Recipe"),
-        activeColor: CupertinoColors.activeBlue,
+        activeColor: CupertinoColors.activeGreen,
         inactiveColor: CupertinoColors.black,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.person),
         title: ("User Profile"),
-        activeColor: CupertinoColors.activeBlue,
+        activeColor: CupertinoColors.activeGreen,
         inactiveColor: CupertinoColors.black,
       ),
     ];
