@@ -23,12 +23,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cloud_firestore: 0.16.0+1
+  cloud_firestore: ^0.16.0+1
   cupertino_icons: ^1.0.0
-  firebase_core: ^0.7.0 
+  firebase_core: ^0.7.0
   firebase_storage: ^7.0.0
   image_picker: ^0.6.7+22
   persistent_bottom_nav_bar: ^3.1.0
+  shimmer: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -72,3 +73,4 @@ flutter:
         - asset: fonts/Poppins-Regular.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
